@@ -16,7 +16,7 @@ Mở <http://localhost:8000>. Trên Windows có thể thay `python3` bằng `pyt
 Headless:
 
 ```bash
-python3 -m lantern_islands --seed 42 --night 1 --ticks 600 --out run.jsonl
+python3 -m lantern_islands --seed 42 --night 2 --ticks 600 --out run.jsonl
 ```
 
 Có thể thêm `--scenario file.json --inputs file.json --snapshot-every 10`. Scenario/inputs sai trả mã 2; output là JSONL và luôn kết thúc bằng dòng `end`.
@@ -26,6 +26,8 @@ Có thể thêm `--scenario file.json --inputs file.json --snapshot-every 10`. S
 - `WASD`: di chuyển
 - `E`: nạp đom đóm vào đèn gần nhất
 - `Q`: Tỏa Sáng
+- `Shift`: Lướt
+- `P` hoặc `Esc`: tạm dừng
 - `R`: chơi lại
 
 ## Luật và điểm
@@ -40,6 +42,8 @@ Phần nhìn dùng các khối hình học tự tạo, phối sương xanh tím 
 
 - [Giả định/evaluation Phase 1](docs/notes/phase-1.md)
 - [Bằng chứng Phase 1](docs/proof/phase-1.md)
+- [Spec và evaluation Phase 2](docs/notes/phase-2.md)
+- [Bằng chứng Phase 2](docs/proof/phase-2.md)
 - `AGENTS.md`: harness hướng dẫn agent và hàng rào TDD
 - `game.contract.json`: contract và tuning đang dùng
 
