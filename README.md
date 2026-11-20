@@ -8,6 +8,7 @@ Yêu cầu Python 3.11+ (không có dependency ngoài):
 
 ```bash
 python3 -m unittest discover -s tests -v
+node --test tests/test_web_controls.mjs
 python3 -m http.server 8000 -d web
 ```
 

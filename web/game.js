@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three.module.js';
+import { nextMouseYaw } from './controls.mjs';
 
 const $=selector=>document.querySelector(selector);
 const canvas=$('#game'),menu=$('#menu'),hud=$('#hud'),pauseView=$('#pause'),resultView=$('#result');
@@ -106,7 +107,7 @@ function frame(){animationId=requestAnimationFrame(frame);const dt=Math.min(cloc
 
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight,false)});renderer.setSize(innerWidth,innerHeight,false);
 addEventListener('keydown',event=>{const key=event.key.toLowerCase();keys.add(key);if(key==='e')interact();if(key==='q')pulse();if((key==='shift')&&dashCd<=0&&running&&!paused){dashTime=.2;dashCd=1.5}if((key==='p'||key==='escape')&&running)setPause(!paused);if(key==='r'&&running)resetGame()});addEventListener('keyup',event=>keys.delete(event.key.toLowerCase()));
-addEventListener('mousemove',event=>{if(document.pointerLockElement===canvas&&running&&!paused)yaw-=event.movementX*.0025});canvas.addEventListener('click',()=>{if(running&&!paused)canvas.requestPointerLock?.()});
+addEventListener('mousemove',event=>{yaw=nextMouseYaw(yaw,event.movementX,{running,paused,pointerLocked:document.pointerLockElement===canvas,pointerOnCanvas:event.target===canvas,pressedKeys:keys})});canvas.addEventListener('pointerdown',event=>{if(running&&!paused){event.preventDefault();canvas.requestPointerLock?.().catch?.(()=>{})}});addEventListener('blur',()=>keys.clear());
 $('#start').addEventListener('click',()=>{currentNight=Number($('#night').value);menu.hidden=true;hud.hidden=false;resultView.hidden=true;resetGame();running=true;clock.getDelta();canvas.requestPointerLock?.()});
 $('#resume').addEventListener('click',()=>setPause(false));$('#restart').addEventListener('click',()=>{pauseView.hidden=true;resetGame();running=true;canvas.requestPointerLock?.()});$('#back-menu').addEventListener('click',()=>location.reload());
 $('#result-action').addEventListener('click',()=>{if(lastWon&&currentNight<3)currentNight++;resultView.hidden=true;resetGame();running=true;canvas.requestPointerLock?.()});$('#result-menu').addEventListener('click',()=>location.reload());

@@ -2,6 +2,7 @@
 
 - Runtime: Python 3.11+ standard library; browser client is dependency-free HTML/CSS/JS.
 - Run all checks: `python3 -m unittest discover -s tests -v`.
+- Verify browser input math: `node --test tests/test_web_controls.mjs`.
 - Headless smoke test: `python3 -m lantern_islands --seed 1 --night 2 --ticks 1200 --out run.jsonl`.
 - Keep gameplay rules in `lantern_islands/`; rendering must not affect deterministic state.
 - Add a failing test before changing behavior. Never weaken or skip a red test.
