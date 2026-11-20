@@ -26,6 +26,8 @@
       </label>
       <label class="accessibility-toggle"><input id="distinct-colors" type="checkbox"><span><strong>Bảng màu dễ phân biệt</strong><small>Viền xanh lam và cảnh báo kèm biểu tượng</small></span></label>
       <button id="start" class="primary">Bắt đầu hành trình <span aria-hidden="true">→</span></button>
+      <button id="show-leaderboard" class="secondary">Bảng xếp hạng</button>
+      <button id="show-settings" class="secondary">Cài đặt & phím</button>
       <div class="controls"><span><kbd>WASD</kbd> Di chuyển</span><span><kbd>Chuột</kbd> Camera</span><span><kbd>E</kbd> Nạp đèn</span><span><kbd>Q</kbd> Tỏa sáng</span><span><kbd>Shift</kbd> Lướt</span></div>
     </section>
   </main>
@@ -39,6 +41,11 @@
     <div class="mote-rack"><span>ĐOM ĐÓM</span><div id="motes"></div></div>
     <div class="cooldowns"><div id="dash-cd"><kbd>⇧</kbd><span>LƯỚT</span></div><div id="pulse-cd"><kbd>Q</kbd><span>TỎA SÁNG</span></div></div>
     <div id="prompt" class="prompt" role="status"></div>
+    <div id="shade-alert" class="edge-marker shade-marker" hidden aria-live="polite">▲</div>
+    <div id="lantern-arrow" class="edge-marker lantern-marker" hidden aria-hidden="true">▲</div>
+    <div id="wind-alert" class="a11y-banner" hidden role="status"></div>
+    <div id="countdown-alert" class="a11y-banner countdown" hidden role="status"></div>
+    <div id="fuel-alert" class="a11y-banner fuel" hidden role="status"></div>
     <div class="crosshair" aria-hidden="true"></div>
   </section>
 
@@ -47,8 +54,11 @@
   </section>
 
   <section id="result" class="overlay compact" hidden aria-labelledby="result-title">
-    <div class="dialog-card"><p id="result-kicker" class="eyebrow"></p><h2 id="result-title"></h2><p id="result-copy"></p><div class="result-score"><span>Tổng điểm</span><strong id="result-score"></strong></div><button id="result-action" class="primary"></button><button id="result-menu">Về menu</button></div>
+    <div class="dialog-card"><p id="result-kicker" class="eyebrow"></p><h2 id="result-title"></h2><p id="result-copy"></p><div class="result-score"><span>Tổng điểm</span><strong id="result-score"></strong></div><form id="score-form"><label for="player-name">Lưu vào bảng xếp hạng</label><div class="name-row"><input id="player-name" name="name" required minlength="3" maxlength="12" pattern="[A-Za-z0-9_]+" placeholder="Tên của bạn"><button type="submit">Lưu</button></div><small id="score-message" role="status"></small></form><button id="result-action" class="primary"></button><button id="result-menu">Về menu</button></div>
   </section>
+
+  <section id="leaderboard" class="overlay compact" hidden aria-labelledby="leaderboard-title"><div class="dialog-card leaderboard-card"><p class="eyebrow">10 NGƯỜI GIỮ ĐÈN</p><h2 id="leaderboard-title">Bảng xếp hạng</h2><ol id="leaderboard-list"></ol><button id="close-leaderboard" class="primary">Quay lại</button></div></section>
+  <section id="settings" class="overlay compact" hidden aria-labelledby="settings-title"><div class="dialog-card settings-card"><p class="eyebrow">DỄ TIẾP CẬN</p><h2 id="settings-title">Cài đặt</h2><div id="binding-grid" class="binding-grid"></div><p id="binding-error" class="setting-error" role="alert"></p><label class="setting-slider">Âm lượng <input id="volume" type="range" min="0" max="1" step="0.01"><span id="volume-value">55%</span></label><label class="setting-slider">Độ nhạy chuột <input id="sensitivity" type="range" min="0.0005" max="0.01" step="0.0001"><span id="sensitivity-value">0.0025</span></label><label class="setting-check"><input id="reduced-motion" type="checkbox"> Giảm chuyển động</label><label class="setting-check"><input id="large-ui" type="checkbox"> Chữ lớn ×1.25</label><button id="reset-bindings">Khôi phục mặc định</button><button id="save-settings" class="primary">Lưu cài đặt</button><button id="close-settings">Đóng</button></div></section>
 
   <div id="webgl-error" class="error" hidden role="alert">Trình duyệt không khởi tạo được WebGL. Hãy bật tăng tốc phần cứng hoặc dùng Chrome/Firefox mới.</div>
   <script>addEventListener('error',event=>{const box=document.querySelector('#webgl-error');box.hidden=false;box.textContent=`Lỗi hiển thị: ${event.message}`})</script>
