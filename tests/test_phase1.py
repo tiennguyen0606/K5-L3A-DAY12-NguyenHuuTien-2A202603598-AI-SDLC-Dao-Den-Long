@@ -23,7 +23,8 @@ class Phase1SimulationTests(unittest.TestCase):
         self.assertEqual(pickup_events[0]["name"], "mote_picked")
         self.assertEqual([event["name"] for event in deposit_events], ["deposit", "lantern_lit"])
         self.assertTrue(sim.lanterns[0].lit)
-        self.assertEqual(sim.score, 200)
+        # Phase 3 replaces scoring: 10 deposited motes × 5 + first light × 100.
+        self.assertEqual(sim.score, 150)
 
     def test_pulse_costs_motes_and_stuns_nearby_shade(self):
         sim = Simulation(seed=1, night=1, scenario={

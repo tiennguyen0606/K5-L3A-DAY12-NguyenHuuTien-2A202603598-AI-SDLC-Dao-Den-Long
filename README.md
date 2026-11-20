@@ -1,6 +1,6 @@
 # Đảo Đèn Lồng
 
-Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, thắp sáng các đảo và chống lại Bóng Mực. Repo hiện thực Phase 1–2 của Day 12 AI SDLC Lab, gồm renderer Three.js chạy offline và mô phỏng headless tất định theo Test Contract.
+Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, duy trì nhiên liệu đèn tới bình minh và chống lại Bóng Mực. Repo hiện thực Phase 1–3 của Day 12 AI SDLC Lab, gồm renderer Three.js chạy offline và mô phỏng headless tất định theo Test Contract v1.2.
 
 ## Chạy trong tối đa 3 lệnh
 
@@ -32,7 +32,7 @@ Có thể thêm `--scenario file.json --inputs file.json --snapshot-every 10`. S
 
 ## Luật và điểm
 
-Mây mang tối đa 10 đom đóm; mỗi đèn cần 10. Điểm: +10 cho mỗi đom đóm nạp, +100 cho mỗi đèn thắp, +5 cho mỗi Bóng Mực trúng pulse; khi thắng cộng `floor(giây còn lại) × 2 + 50 × Ngọn Lửa còn lại`.
+Mỗi đèn cần 10 đom đóm lần đầu và 5 khi thắp lại. Đèn sáng hao một nhiên liệu mỗi giây; hãy châm dầu và giữ ít nhất 60% số đèn sáng tới bình minh. Sức chứa tăng hai sau mỗi lần thắp thành công, tối đa 20. Điểm chi tiết được khai báo trong `game.contract.json`.
 
 ## Sáng tạo của tôi
 
@@ -44,7 +44,10 @@ Phần nhìn dùng các khối hình học tự tạo, phối sương xanh tím 
 - [Bằng chứng Phase 1](docs/proof/phase-1.md)
 - [Spec và evaluation Phase 2](docs/notes/phase-2.md)
 - [Bằng chứng Phase 2](docs/proof/phase-2.md)
+- [ADR nhiên liệu và luật bình minh](docs/adr/0001-lantern-fuel-and-dawn.md)
+- [Spec/evaluation Phase 3](docs/notes/phase-3.md)
+- [Bằng chứng Phase 3](docs/proof/phase-3.md)
 - `AGENTS.md`: harness hướng dẫn agent và hàng rào TDD
 - `game.contract.json`: contract và tuning đang dùng
 
-Phase 2 bổ sung ba đêm, dash, pause, Gió Lạc, Bùa Gió và contract v1.1; xem tài liệu Phase 2 trong `docs/` tại tag `phase-2`.
+Phase 3 bổ sung nhiên liệu, châm dầu/thắp lại, Bóng Mực hút dầu, sức chứa động, chế độ màu dễ phân biệt và luật thắng tại bình minh.

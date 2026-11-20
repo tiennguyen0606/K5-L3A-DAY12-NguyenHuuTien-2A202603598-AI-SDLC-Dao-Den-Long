@@ -5,7 +5,8 @@ from lantern_islands.simulation import Simulation
 
 class Phase2ContractTests(unittest.TestCase):
     def test_each_night_uses_standard_lantern_count_and_duration(self):
-        expectations = {1: (5, 300), 2: (6, 330), 3: (7, 360)}
+        # Phase 3 explicitly replaces the Phase 2 night durations.
+        expectations = {1: (5, 240), 2: (6, 270), 3: (7, 300)}
         for night, (lantern_count, duration) in expectations.items():
             sim = Simulation(seed=1, night=night, scenario={"random_motes": False, "random_shades": False, "random_drifters": False})
             self.assertEqual(len(sim.lanterns), lantern_count)
