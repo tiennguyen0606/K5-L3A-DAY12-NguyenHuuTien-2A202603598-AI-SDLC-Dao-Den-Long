@@ -3,7 +3,8 @@
 ## Acceptance criteria
 
 - Standard tuning: run 6 m/s, dash 14 m/s for 0.2 s with 1.5 s cooldown, carry 10, lantern cost 10, pulse 3/5 m/3 s.
-- Nights 1/2/3 expose 5/6/7 standard lanterns and last 300/330/360 seconds.
+- Nights 1/2/3 expose 5/6/7 standard lanterns and last **300/330/360 seconds** (Ticket-02 / Contract v1.1 at tag `phase-2`).
+- **Superseded later:** Ticket-03 / Phase 3 replaces night durations with **240/270/300 seconds**. Current `tests/test_phase2.py` asserts the Phase 3 table on purpose (see comment in that test and `docs/notes/phase-3.md`); it is not a regression against tag `phase-2`.
 - Dash is edge-triggered; Charm lasts 600 ticks, changes run speed to 7.2 m/s, and removes dash cooldown.
 - Pause advances outer `tick`, while `sim_tick`, time, cooldowns, TTL and spawning remain frozen.
 - Drifter steals up to three motes once; pulse during flee drops its stolen motes.
