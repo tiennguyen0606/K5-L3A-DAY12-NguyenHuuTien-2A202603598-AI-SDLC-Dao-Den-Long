@@ -1,5 +1,14 @@
 # Changelog
 
+## Phase 4 — Contract v1.3 / v1.0.0
+
+### Added
+
+- `bench_cmd` / `soak_cmd` in `game.contract.json`, plus `bench.json` and `soak.json` evidence.
+- Local leaderboard (top 10, export via `--export-leaderboard`).
+- Accessibility: remappable keys, volume, mouse sensitivity, reduced motion, large UI, visual banners for shade spawn, wind, countdown, and low fuel.
+- Release packaging docs, retro, and demo notes under `docs/`.
+
 ## Phase 3 — Contract v1.2
 
 ### Breaking changes
@@ -18,3 +27,21 @@
 - `refuel`, `lantern_out`, and `fuel_drain` events.
 - ADR documenting the state-model and dawn-outcome migration.
 
+## Phase 2 — Contract v1.1
+
+### Added
+
+- Three nights with standardized maps, dash, pause, charms, drifters, wind on Night 3.
+- Snapshot fields for velocity, cooldowns, motes/drifters/charms collections.
+- Acceptance criteria and proof under `docs/notes/phase-2.md` and `docs/proof/phase-2.md`.
+
+### Changed
+
+- Tuning locked to the Ticket-02 table; Phase 1 free values replaced.
+
+## Phase 1 — Contract v1.0
+
+### Added
+
+- Deterministic headless core, JSONL contract output, browser playable Night 1 loop.
+- `game.contract.json`, `AGENTS.md`, assumptions and proof notes.
