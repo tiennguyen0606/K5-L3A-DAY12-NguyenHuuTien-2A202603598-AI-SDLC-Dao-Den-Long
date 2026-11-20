@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đảo Đèn Lồng</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Game 3D Đảo Đèn Lồng"></canvas>
+  <section id="menu" class="panel">
+    <p class="eyebrow">ĐÊM 1 · ĐẢO BẾN</p>
+    <h1>Đảo Đèn Lồng</h1>
+    <p>Sương đen đang tới. Hãy đưa ánh sáng trở về đảo.</p>
+    <button id="start">Bắt đầu</button>
+    <p class="help">WASD di chuyển · E nạp đèn · Q tỏa sáng · R chơi lại</p>
+  </section>
+  <div id="hud" hidden>
+    <div id="flames"></div><div id="timer"></div><div id="stats"></div>
+    <div id="motes"></div><div id="prompt"></div>
+  </div>
+  <section id="result" class="panel" hidden><h2></h2><p></p><button>Chơi lại</button></section>
+  <script src="game.js"></script>
+</body>
+</html>

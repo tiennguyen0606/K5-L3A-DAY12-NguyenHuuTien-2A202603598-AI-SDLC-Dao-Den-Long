@@ -1,0 +1,15 @@
+:root { color-scheme: dark; font-family: Georgia, serif; }
+* { box-sizing: border-box; }
+body { margin: 0; overflow: hidden; background: #0e1430; color: #f5f1e6; }
+canvas { width: 100vw; height: 100vh; display: block; }
+.panel { position: fixed; inset: 50% auto auto 50%; translate: -50% -50%; width: min(520px, 90vw); padding: 38px; text-align: center; border: 1px solid #f2c14e88; border-radius: 24px; background: #0e1430e8; box-shadow: 0 0 80px #ffb34733; backdrop-filter: blur(12px); }
+.eyebrow { color: #f2c14e; letter-spacing: .2em; font: 700 12px system-ui; }
+h1 { color: #ffb347; font-size: clamp(40px, 8vw, 72px); margin: 10px 0; }
+button { border: 0; border-radius: 999px; padding: 13px 26px; color: #120a1a; background: #ffb347; font-weight: 800; cursor: pointer; }
+.help { opacity: .7; font: 13px system-ui; }
+#hud { position: fixed; inset: 0; pointer-events: none; font: 700 16px system-ui; text-shadow: 0 2px 6px #000; }
+#flames { position: absolute; top: 24px; left: 24px; color: #ffb347; }
+#timer { position: absolute; top: 24px; left: 50%; translate: -50%; font-size: 24px; }
+#stats { position: absolute; top: 24px; right: 24px; text-align: right; }
+#motes { position: absolute; bottom: 25px; left: 50%; translate: -50%; color: #ffe58a; letter-spacing: 4px; }
+#prompt { position: absolute; bottom: 70px; left: 50%; translate: -50%; color: #ffe9b0; }
