@@ -4,6 +4,10 @@ Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổ
 
 ![Menu Đảo Đèn Lồng](docs/demo/menu.png)
 
+![Gameplay Đêm 1](docs/demo/play.png)
+
+Demo bằng ảnh: [docs/demo/](docs/demo/). Video `.mp4` có thể bổ sung sau (Windows: `Win + G`).
+
 ## Chạy trong tối đa 3 lệnh
 
 Yêu cầu Python 3.11+ (không dependency ngoài) và trình duyệt có WebGL:
