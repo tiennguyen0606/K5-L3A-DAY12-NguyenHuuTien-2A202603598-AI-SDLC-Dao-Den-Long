@@ -6,9 +6,13 @@ __pycache__/
 dist/
 Microsoft/
 *.jsonl
+!docs/proof/logs/*.jsonl
 .chrome-test*/
 .bench-chrome-profile/
+.demo-chrome-profile/
 ui-*.png
 data/
 bench-smoke.json
+verify-smoke.jsonl
+ci-smoke.jsonl
 

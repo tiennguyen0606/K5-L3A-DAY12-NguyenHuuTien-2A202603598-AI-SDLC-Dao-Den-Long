@@ -1,12 +1,12 @@
 # Đảo Đèn Lồng
 
+**Demo video:** [docs/demo/demo.mp4](docs/demo/demo.mp4) · **Release:** [v1.0.0](https://github.com/tiennguyen0606/K5-L3A-DAY12-NguyenHuuTien-2A202603598-AI-SDLC-Dao-Den-Long/releases/tag/v1.0.0) · **Tags:** `phase-1` … `phase-4`
+
 Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, duy trì nhiên liệu đèn tới bình minh và chống lại Bóng Mực. Repo hiện thực Phase 1–4 (Contract v1.3) của Day 12 AI SDLC Lab: renderer Three.js offline + mô phỏng headless tất định.
 
 ![Menu Đảo Đèn Lồng](docs/demo/menu.png)
 
 ![Gameplay Đêm 1](docs/demo/play.png)
-
-Demo bằng ảnh: [docs/demo/](docs/demo/). Video `.mp4` có thể bổ sung sau (Windows: `Win + G`).
 
 ## Chạy trong tối đa 3 lệnh
 
@@ -19,6 +19,8 @@ python3 -m lantern_islands.webapp
 ```
 
 Mở <http://127.0.0.1:8000>. Trên Windows có thể thay `python3` bằng `python`.
+
+Cổng kiểm chứng một lệnh (agent/CI): `python3 scripts/verify.py`.
 
 ## Điều khiển
 
@@ -42,6 +44,7 @@ python3 -m lantern_islands.webapp --export-leaderboard leaderboard-export.json
 - Scenario/inputs sai → mã thoát 2.
 - Benchmark cần Chrome/Chromium (`CHROME_BIN` nếu không tìm thấy). `peak_mem_mb` là `null` vì đo trong trang web headless; giải thích trong README này.
 - Vsync tắt qua flag Chrome `--disable-gpu-vsync` và renderer không chờ vsync trong trang bench.
+- CI: `.github/workflows/ci.yml` chạy unittest + Node tests + headless smoke trên mỗi push.
 
 ## Sáng tạo của tôi
 
@@ -49,11 +52,11 @@ Hình học tự tạo, sương xanh tím, quầng đèn vàng cam tăng theo ti
 
 ## Tài liệu và bằng chứng
 
-- [Giả định/evaluation Phase 1–3](docs/notes/) · [Proof](docs/proof/)
+- [Tag map](docs/proof/TAGS.md) · [Proof logs](docs/proof/logs/) · [Proof theo phase](docs/proof/)
 - [ADR nhiên liệu & bình minh](docs/adr/0001-lantern-fuel-and-dawn.md)
-- [Retro 4 phase](docs/retro.md) · [Demo notes](docs/demo/README.md)
+- [Retro 4 phase](docs/retro.md) · [Demo](docs/demo/README.md)
 - `AGENTS.md`, `CHANGELOG.md`, `CREDITS.md`, `LICENSE`, `game.contract.json`
-- Evidence đã chạy: `bench.json`, `soak.json`
+- Evidence đã chạy: `bench.json`, `soak.json`, `docs/demo/demo.mp4`
 
 ## Hệ thống
 

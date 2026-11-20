@@ -19,6 +19,8 @@
 
 - `AGENTS.md` (tick order, fuel sixtieths, không restore `all_lit`).
 - Suite `tests/test_phase1.py`…`test_phase4.py` làm hàng rào regression.
+- `scripts/verify.py` + GitHub Actions CI: agent/CI không được kết thúc khi test đỏ.
+- `docs/proof/TAGS.md` + logs trong `docs/proof/logs/` gắn bằng chứng với tag thật trên remote.
 
 ## Token / chi phí ước tính
 

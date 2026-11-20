@@ -8,6 +8,8 @@
 - Local leaderboard (top 10, export via `--export-leaderboard`).
 - Accessibility: remappable keys, volume, mouse sensitivity, reduced motion, large UI, visual banners for shade spawn, wind, countdown, and low fuel.
 - Release packaging docs, retro, and demo notes under `docs/`.
+- GitHub Actions CI (`.github/workflows/ci.yml`) and `scripts/verify.py` agent gate.
+- `docs/demo/demo.mp4` gameplay/evidence clip; remote tags `phase-1`…`phase-4`.
 
 ## Phase 3 — Contract v1.2
 

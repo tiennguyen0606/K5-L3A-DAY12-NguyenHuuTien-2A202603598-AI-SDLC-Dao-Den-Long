@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['phase-*', 'v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Python unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Browser control tests
+        run: node --test tests/test_web_controls.mjs
+
+      - name: Headless smoke (Night 2)
+        run: python -m lantern_islands --seed 1 --night 2 --ticks 600 --out ci-smoke.jsonl
+
+      - name: Contract file present
+        run: python -c "import json; c=json.load(open('game.contract.json')); assert c['contract_version']=='1.3'; assert 'bench_cmd' in c and 'soak_cmd' in c"

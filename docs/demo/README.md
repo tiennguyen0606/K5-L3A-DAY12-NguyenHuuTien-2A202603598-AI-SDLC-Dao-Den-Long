@@ -1,23 +1,35 @@
 # Demo
 
-Ticket-04 ưu tiên video `.mp4` dưới 5 phút. Máy nộp bài chưa có app quay video nên dùng **bộ ảnh chụp** làm bằng chứng chơi được. Có thể bổ sung `demo.mp4` sau bằng Xbox Game Bar có sẵn Windows: `Win + G` hoặc `Win + Alt + R` (không cần cài thêm).
+## Video (bắt buộc theo Ticket-04)
 
-## Ảnh demo hiện có
+File: [`demo.mp4`](demo.mp4) (~30 giây, dưới 5 phút).
 
-### 1. Menu chính
-![Menu Đảo Đèn Lồng](menu.png)
+Nội dung:
 
-### 2. Đang chơi Đêm 1
-![Gameplay Đêm 1](play.png)
+1. Ảnh menu + gameplay đã chụp tay.
+2. Đoạn capture headless Chrome CDP khi game `autostart` trên `http://127.0.0.1:8000`.
 
-## Checklist bằng chứng kèm ảnh
+Tạo lại:
 
 ```bash
-python -m unittest discover -s tests -v
-python -m lantern_islands --seed 1 --night 2 --ticks 600 --out run.jsonl
+python -m lantern_islands.webapp
+# terminal khác:
+set PYTHONPATH=.
+python scripts/make_demo_mp4.py
+```
+
+Đính kèm thêm vào GitHub Release `v1.0.0` nếu cần tải độc lập.
+
+## Ảnh
+
+![Menu](menu.png)
+
+![Gameplay](play.png)
+
+## Bằng chứng kèm theo
+
+```bash
+python scripts/verify.py
 python -m lantern_islands.benchmark --seed 42 --duration 30 --out bench.json
 python -m lantern_islands.soak --seed 7 --nights 10 --out soak.json
 ```
-
-- `bench.json`, `soak.json` đã commit ở gốc repo.
-- Release: https://github.com/tiennguyen0606/K5-L3A-DAY12-NguyenHuuTien-2A202603598-AI-SDLC-Dao-Den-Long/releases/tag/v1.0.0

@@ -4,7 +4,7 @@
   "p1_low_fps": 59.153,
   "frame_ms_p95": 16.8,
   "frames": 1801,
-  "load_ms": 195.3,
+  "load_ms": 13.1,
   "peak_mem_mb": null,
   "vsync_off": true,
   "renderer": "Three.js r181 / WebGL2 / 7 calls",
