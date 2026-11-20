@@ -2,7 +2,7 @@
 
 Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, duy trì nhiên liệu đèn tới bình minh và chống lại Bóng Mực. Repo hiện thực Phase 1–4 (Contract v1.3) của Day 12 AI SDLC Lab: renderer Three.js offline + mô phỏng headless tất định.
 
-![Menu Đảo Đèn Lồng](docs/demo/ui-menu.png)
+![Menu Đảo Đèn Lồng](docs/demo/menu.png)
 
 ## Chạy trong tối đa 3 lệnh
 

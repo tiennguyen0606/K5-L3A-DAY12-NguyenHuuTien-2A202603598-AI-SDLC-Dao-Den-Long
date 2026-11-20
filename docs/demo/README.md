@@ -8,4 +8,4 @@ Nội dung gợi ý:
 2. Mở Cài đặt (đổi phím, volume, reduced motion).
 3. Hiện bằng chứng terminal: unittest, headless smoke, benchmark, soak.
 
-Ảnh menu tham chiếu: `ui-menu.png` (chụp từ bản WebGL hiện tại).
+Ảnh menu tham chiếu: `menu.png` (chụp từ bản WebGL hiện tại).
