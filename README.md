@@ -1,6 +1,6 @@
 # Đảo Đèn Lồng
 
-Game phiêu lưu góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, thắp sáng các đảo và chống lại Bóng Mực. Repo hiện thực Phase 1–2 của Day 12 AI SDLC Lab, gồm chế độ chơi trình duyệt và mô phỏng headless tất định theo Test Contract.
+Game WebGL 3D góc nhìn thứ ba về Mây — người giữ đèn trẻ tuổi — gom đom đóm, thắp sáng các đảo và chống lại Bóng Mực. Repo hiện thực Phase 1–2 của Day 12 AI SDLC Lab, gồm renderer Three.js chạy offline và mô phỏng headless tất định theo Test Contract.
 
 ## Chạy trong tối đa 3 lệnh
 

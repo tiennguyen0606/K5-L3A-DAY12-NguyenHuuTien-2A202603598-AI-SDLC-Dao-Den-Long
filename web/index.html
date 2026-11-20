@@ -3,24 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0e1430">
   <title>Đảo Đèn Lồng</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <canvas id="game" aria-label="Game 3D Đảo Đèn Lồng"></canvas>
-  <section id="menu" class="panel">
-    <p class="eyebrow">ĐÊM 1 · ĐẢO BẾN</p>
-    <h1>Đảo Đèn Lồng</h1>
-    <p>Sương đen đang tới. Hãy đưa ánh sáng trở về đảo.</p>
-    <label>Chọn đêm <select id="night"><option value="1">Đảo Bến</option><option value="2">Đảo Cau</option><option value="3">Đảo Chuông</option></select></label>
-    <button id="start">Bắt đầu</button>
-    <p class="help">WASD di chuyển · Shift lướt · E nạp đèn · Q tỏa sáng · P tạm dừng · R chơi lại</p>
+  <canvas id="game" aria-label="Cảnh game 3D Đảo Đèn Lồng"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main id="menu" class="overlay">
+    <section class="menu-card" aria-labelledby="game-title">
+      <div class="lantern-mark" aria-hidden="true"><i></i></div>
+      <p class="eyebrow">CHUYỆN KỂ TỪ BIỂN MÂY</p>
+      <h1 id="game-title">Đảo<br><span>Đèn Lồng</span></h1>
+      <p class="intro">Cùng Mây gom những đốm sáng cuối cùng và đánh thức các ngọn đèn trước khi bình minh tới.</p>
+      <label class="night-picker" for="night"><span>Hành trình</span>
+        <select id="night">
+          <option value="1">Đêm 1 — Đảo Bến</option>
+          <option value="2">Đêm 2 — Đảo Cau</option>
+          <option value="3">Đêm 3 — Đảo Chuông</option>
+        </select>
+      </label>
+      <button id="start" class="primary">Bắt đầu hành trình <span aria-hidden="true">→</span></button>
+      <div class="controls"><span><kbd>WASD</kbd> Di chuyển</span><span><kbd>Chuột</kbd> Camera</span><span><kbd>E</kbd> Nạp đèn</span><span><kbd>Q</kbd> Tỏa sáng</span><span><kbd>Shift</kbd> Lướt</span></div>
+    </section>
+  </main>
+
+  <section id="hud" aria-label="Thông tin trò chơi" hidden>
+    <div class="hud-panel status-panel">
+      <span class="hud-label">NGỌN LỬA</span><div id="flames" class="flames"></div>
+    </div>
+    <div class="night-title"><span id="night-name">ĐẢO BẾN</span><strong id="timer">05:00</strong><small id="danger-text"></small></div>
+    <div class="hud-panel progress-panel"><span id="lantern-count">ĐÈN 0 / 5</span><strong id="score">0000</strong><small>ĐIỂM ÁNH SÁNG</small></div>
+    <div class="mote-rack"><span>ĐOM ĐÓM</span><div id="motes"></div></div>
+    <div class="cooldowns"><div id="dash-cd"><kbd>⇧</kbd><span>LƯỚT</span></div><div id="pulse-cd"><kbd>Q</kbd><span>TỎA SÁNG</span></div></div>
+    <div id="prompt" class="prompt" role="status"></div>
+    <div class="crosshair" aria-hidden="true"></div>
   </section>
-  <div id="hud" hidden>
-    <div id="flames"></div><div id="timer"></div><div id="stats"></div>
-    <div id="motes"></div><div id="prompt"></div>
-  </div>
-  <section id="result" class="panel" hidden><h2></h2><p></p><button>Chơi lại</button></section>
-  <script src="game.js"></script>
+
+  <section id="pause" class="overlay compact" hidden aria-labelledby="pause-title">
+    <div class="dialog-card"><p class="eyebrow">HÀNH TRÌNH TẠM DỪNG</p><h2 id="pause-title">Lắng nghe biển mây</h2><button id="resume" class="primary">Tiếp tục</button><button id="restart">Chơi lại đêm</button><button id="back-menu">Về menu</button><p class="hint"><kbd>P</kbd> hoặc <kbd>Esc</kbd> để tiếp tục</p></div>
+  </section>
+
+  <section id="result" class="overlay compact" hidden aria-labelledby="result-title">
+    <div class="dialog-card"><p id="result-kicker" class="eyebrow"></p><h2 id="result-title"></h2><p id="result-copy"></p><div class="result-score"><span>Tổng điểm</span><strong id="result-score"></strong></div><button id="result-action" class="primary"></button><button id="result-menu">Về menu</button></div>
+  </section>
+
+  <div id="webgl-error" class="error" hidden role="alert">Trình duyệt không khởi tạo được WebGL. Hãy bật tăng tốc phần cứng hoặc dùng Chrome/Firefox mới.</div>
+  <script>addEventListener('error',event=>{const box=document.querySelector('#webgl-error');box.hidden=false;box.textContent=`Lỗi hiển thị: ${event.message}`})</script>
+  <script type="module" src="game.js"></script>
 </body>
 </html>
